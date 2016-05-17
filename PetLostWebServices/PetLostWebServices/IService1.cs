@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Xml.Serialization;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -22,27 +23,27 @@ namespace PetLostWebServices
         CompositeType GetDataUsingDataContract(CompositeType composite);*/
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "Registo", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        [WebInvoke(UriTemplate = "Registo", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         Boolean Registo(RegistoForm form);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "Login", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        [WebInvoke(UriTemplate = "Login", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         Boolean Login(LoginForm form);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "RegistoAnimal", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        [WebInvoke(UriTemplate = "RegistoAnimal", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         Boolean RegistoAnimal(AniForm form);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "BuscaLocal", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        [WebInvoke(UriTemplate = "BuscaLocal", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         List<AniForm> BuscaLocal(BuscaForm form);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "Encontrado", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        [WebInvoke(UriTemplate = "Encontrado", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         Boolean Encontrado(string email);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "ListaAnimais",RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        [WebInvoke(UriTemplate = "ListaAnimais",RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         List<AniForm> ListaAnimais(string email);
 
         
