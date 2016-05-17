@@ -185,14 +185,14 @@ namespace PetLostWebServices
             return formArray;
         }
 
-        public Boolean Encontrado(string email)
+        public Boolean Encontrado(string email, string nomeAnimal)
         {
             _client = new MongoClient();
             _database = _client.GetDatabase("test");
 
             var collection = _database.GetCollection<BsonDocument>("Registo");
             var builder = Builders<BsonDocument>.Filter;
-            var filter = builder.Eq("email", email);
+            var filter = builder.Eq("email", email) & builder.Eq("name", nomeAnimal);
 
             var update = Builders<BsonDocument>.Update
                 .Set("encontrado", true)
