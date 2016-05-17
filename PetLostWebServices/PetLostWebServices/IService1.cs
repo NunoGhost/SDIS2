@@ -46,6 +46,10 @@ namespace PetLostWebServices
         [WebInvoke(UriTemplate = "ListaAnimais", Method = "*", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         List<AniForm> ListaAnimais(string email);
 
+        [OperationContract]
+        [WebInvoke(UriTemplate = "PersoanlInfo", Method = "*", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        RegistoForm PersonalInfo(string email);
+
         
 
         // TODO: Add your service operations here
