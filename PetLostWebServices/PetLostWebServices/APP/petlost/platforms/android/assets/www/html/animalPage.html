@@ -1,0 +1,46 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWqgMYLnAkQ75Wh9HHkYdqPhYLTK0PqLs&callback=initMap" async defer></script>
+<div  id="animalIdPage">
+	<div class="container animalsSearch">
+		<a>Animal</a>
+	</div>
+
+	<div class="container">
+		<div class="animalPage">
+			<div class="animalPageImage"></div>
+			<div class="animalPageDescription">
+				<label data-bind="text: name">Nome</label>
+				<label data-bind="text: breed">Raça</label>
+				<label data-bind="text: date">Data</label>
+				<div id="map"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<script>
+	var map;
+	var latv=0;
+	var lngv=0;
+	function initMap() {
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: latv, lng: lngv},
+			zoom: 15
+		});
+
+		var marker = new google.maps.Marker({
+		    position: {lat: latv, lng: lngv},
+		    map: map,
+		    title: 'Lost Animal'
+		});
+	}
+
+	function setCenter(lat2,lng2){
+		latv=lat2;
+		lngv=lng2;
+		if(map!=undefined){
+			map.setCenter(lat2,lng2);
+		}
+	}
+</script>

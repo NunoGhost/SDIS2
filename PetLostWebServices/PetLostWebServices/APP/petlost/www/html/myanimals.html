@@ -1,0 +1,20 @@
+<div  id="myanimalsPage">
+	<div class="container animalsSearch">
+		<a>My Animals</a>
+	</div>
+
+	<div id="noAnimals">
+		<label data-bind="text:noAnimals"></label>
+	</div>
+	<div class="container" data-bind="foreach: animals">
+		<div class="animalView" data-bind="click:$parent.animalPageClick">
+			<div class="animalImage" data-bind="style: { 'background-image' : fotoBASE64 }" style="background-size: contain;"></div>
+			<div class="animalDescription">
+				<label data-bind="text: NomeValue">Nome</label>
+				<label data-bind="text: RacaValue">Raça</label>
+				<label data-bind="text: EmailValue">Contacto</label>
+			</div>
+		</div>
+	</div>
+
+</div>

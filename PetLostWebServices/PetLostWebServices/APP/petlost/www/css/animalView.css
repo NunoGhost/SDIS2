@@ -1,0 +1,55 @@
+.animalsSearch > a{
+	color: #fff;
+	font-weight: bold;
+}
+
+#kmLabel{
+	width: 17%;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+	text-align: right;
+}
+
+#kmSlider{
+	width: 80%;
+    float: left;
+	margin-top: 5px;
+}
+
+.animalView{
+	width: 100%;
+	height: 110px;
+	font-size: 15px;
+	background-color: #fff;
+	margin-top: 5px;
+	margin-bottom: 10px;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.animalImage{
+    width: 25%;
+    height: 100%;
+    float: left;
+    display: table;
+    background: url(../img/logo.png) no-repeat center center;
+    background-size: contain;
+}
+
+.animalDescription{
+    width: 70%;
+    height: auto;
+    float: right;
+    margin-top: 15px;
+    margin-right: 5px;
+    overflow-x: overlay;
+}
+
+.animalDescription > label{
+	width: 100%;
+    white-space: nowrap;
+}

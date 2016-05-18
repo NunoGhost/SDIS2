@@ -1,0 +1,53 @@
+
+<div  id="animalIdPage">
+	<div class="container animalsSearch">
+		<a>Animal</a>
+	</div>
+
+	<div class="container">
+		<div class="animalPage">
+			<div class="animalPageImage" data-bind="style: { 'background-image' : fotoBASE64 }" style="background-size: contain;"></div>
+			<div data-bind="if: owner">
+	            <button class="btn btn-md btn-primary btn-block foundBtn" data-bind="click:foundAnimal">Encontrado</button>
+	        </div>
+			<div class="animalPageDescription">
+				<label data-bind="text: name">Nome</label>
+				<label data-bind="text: breed">Raça</label>
+				<label data-bind="text: date">Data</label>
+				<label data-bind="text: email">Data</label>
+				<label data-bind="text: phone">Data</label>
+				<div id="map"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<script>
+	var map,marker;
+	var latv=0;
+	var lngv=0;
+	function initMap() {
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: latv, lng: lngv},
+			zoom: 15
+		});
+
+		marker = new google.maps.Marker({
+		    position: {lat: latv, lng: lngv},
+		    map: map,
+		    title: 'Lost Animal',
+		    Draggable: true
+		});
+	}
+
+	function setCenter(lat2,lng2){
+		latv=lat2;
+		lngv=lng2;
+		if(map!=undefined){
+			map.setCenter({lat: lat2, lng: lng2});
+			marker.setPosition({lat: lat2, lng: lng2});
+		}
+	}
+</script>
