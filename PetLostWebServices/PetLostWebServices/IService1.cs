@@ -40,11 +40,15 @@ namespace PetLostWebServices
 
         [OperationContract]
         [WebInvoke(UriTemplate = "Encontrado", Method = "*", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
-        Boolean Encontrado(string email);
+        Boolean Encontrado(string email, string nomeAnimal);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "ListaAnimais", Method = "*", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         List<AniForm> ListaAnimais(string email);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "PersoanlInfo", Method = "*", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        RegistoForm PersonalInfo(string email);
 
         
 

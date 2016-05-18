@@ -185,14 +185,14 @@ namespace PetLostWebServices
             return formArray;
         }
 
-        public Boolean Encontrado(string email)
+        public Boolean Encontrado(string email, string nomeAnimal)
         {
             _client = new MongoClient();
             _database = _client.GetDatabase("test");
 
             var collection = _database.GetCollection<BsonDocument>("Registo");
             var builder = Builders<BsonDocument>.Filter;
-            var filter = builder.Eq("email", email);
+            var filter = builder.Eq("email", email) & builder.Eq("name", nomeAnimal);
 
             var update = Builders<BsonDocument>.Update
                 .Set("encontrado", true)
@@ -251,6 +251,43 @@ namespace PetLostWebServices
             }
 
             return formArray;
+        }
+
+
+        public RegistoForm PersonalInfo(string email)
+        {
+            _client = new MongoClient();
+            _database = _client.GetDatabase("test");
+
+            var collection = _database.GetCollection<BsonDocument>("User");
+            var builder = Builders<BsonDocument>.Filter;
+            var filter = builder.Eq("email", email);
+
+
+            try
+            {
+                var result = collection.Find(filter).ToList();
+                if (result.Count() == 1)
+                {
+                    var document = result.First();
+                    RegistoForm form = new RegistoForm();
+                    form.NomeValue = document["name"].AsString;
+                    form.ContatoValue = document["contact"].AsString;
+                    form.EmailValue = email;
+                    form.PasswordValue = "";
+                    return form;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return null;
         }
 
     }
