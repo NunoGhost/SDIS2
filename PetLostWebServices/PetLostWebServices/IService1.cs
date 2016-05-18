@@ -181,10 +181,10 @@ namespace PetLostWebServices
         }
 
         [DataMember]
-        public DateTime DataValue
+        public string DataValue
         {
-            get { return dataValue; }
-            set { dataValue = value; }
+            get { return dataValue.ToString(); }
+            set { dataValue = Convert.ToDateTime(value); }
         }
 
         [DataMember]

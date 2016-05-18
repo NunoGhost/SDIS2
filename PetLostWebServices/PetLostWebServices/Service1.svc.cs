@@ -167,7 +167,7 @@ namespace PetLostWebServices
                         formInterno.EmailValue = document["email"].AsString;
                         formInterno.LocalizacaoLatValue = document["localizacaoLat"].AsDouble;
                         formInterno.LocalizacaoLongValue = document["localizacaoLong"].AsDouble;
-                        formInterno.DataValue = DateTime.Parse(document["data"].AsString);
+                        formInterno.DataValue = document["data"].AsString;
                         formInterno.FotoValue = document["foto"].AsByteArray;
                         formInterno.EncontradoValue = document["encontrado"].AsBoolean;
 
@@ -236,7 +236,7 @@ namespace PetLostWebServices
                     form.EmailValue = email;
                     form.LocalizacaoLatValue = document["localizacaoLat"].AsDouble;
                     form.LocalizacaoLongValue = document["localizacaoLong"].AsDouble;
-                    form.DataValue = DateTime.Parse(document["data"].AsString);
+                    form.DataValue = document["data"].AsString;
                     form.FotoValue = document["foto"].AsByteArray;
                     form.EncontradoValue = document["encontrado"].AsBoolean;
                     
