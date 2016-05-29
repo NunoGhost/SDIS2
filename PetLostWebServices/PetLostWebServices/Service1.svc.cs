@@ -34,10 +34,10 @@ namespace PetLostWebServices
 
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
-
+        private string connBD = "mongodb://192.168.1.168:27017";
         public Boolean Registo(RegistoForm form)
         {
-            _client = new MongoClient();
+            _client = new MongoClient(connBD);
             _database = _client.GetDatabase("test");
 
             var document = new BsonDocument
@@ -64,7 +64,7 @@ namespace PetLostWebServices
 
         public Boolean Login(LoginForm form)
         {
-            _client = new MongoClient();
+            _client = new MongoClient(connBD);
             _database = _client.GetDatabase("test");
 
             var builder = Builders<BsonDocument>.Filter;
@@ -95,7 +95,7 @@ namespace PetLostWebServices
 
         public Boolean RegistoAnimal(AniForm form)
         {
-            _client = new MongoClient();
+            _client = new MongoClient(connBD);
             _database = _client.GetDatabase("test");
 
             var document = new BsonDocument
@@ -126,7 +126,7 @@ namespace PetLostWebServices
 
         public List<AniForm> BuscaLocal(BuscaForm form)
         {
-            _client = new MongoClient();
+            _client = new MongoClient(connBD);
             _database = _client.GetDatabase("test");
 
             double maxPossibleLat = form.LocalizacaoLatValue + (form.RaioValue * 0.0045 * 2);
@@ -187,7 +187,7 @@ namespace PetLostWebServices
 
         public Boolean Encontrado(string email, string nomeAnimal)
         {
-            _client = new MongoClient();
+            _client = new MongoClient(connBD);
             _database = _client.GetDatabase("test");
 
             var collection = _database.GetCollection<BsonDocument>("Registo");
@@ -213,7 +213,7 @@ namespace PetLostWebServices
 
         public List<AniForm> ListaAnimais(string email)
         {
-            _client = new MongoClient();
+            _client = new MongoClient(connBD);
             _database = _client.GetDatabase("test");
 
             var collection = _database.GetCollection<BsonDocument>("Registo");
@@ -256,7 +256,7 @@ namespace PetLostWebServices
 
         public RegistoForm PersonalInfo(string email)
         {
-            _client = new MongoClient();
+            _client = new MongoClient(connBD);
             _database = _client.GetDatabase("test");
 
             var collection = _database.GetCollection<BsonDocument>("User");
