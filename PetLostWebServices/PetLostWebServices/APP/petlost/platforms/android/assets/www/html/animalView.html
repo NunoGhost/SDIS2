@@ -2,14 +2,14 @@
 	<div class="container animalsSearch">
 		<a>Animals lost</a>
 		<div>
-			<input type="range" id="kmSlider" data-bind="value: valueKm, min: minKM, max: maxKm"/>
+			<input type="range" id="kmSlider" min="1" max="10" data-bind="value: valueKm, min: minKM, max: maxKm"/>
 			<input type="text" id="kmLabel" data-bind="value: valueKmLabel"/>
 		</div>
 	</div>
 
 	<div class="container" data-bind="foreach: animals">
 		<div class="animalView" data-bind="click:$parent.animalPageClick">
-			<div class="animalImage"></div>
+			<div class="animalImage" data-bind="style: { 'background-image' : fotoBASE64 }" style="background-size: contain;"></div>
 			<div class="animalDescription">
 				<label data-bind="text: NomeValue">Nome</label>
 				<label data-bind="text: RacaValue">Raça</label>

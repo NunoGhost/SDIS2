@@ -1,4 +1,4 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWqgMYLnAkQ75Wh9HHkYdqPhYLTK0PqLs&callback=initMap" async defer></script>
+
 <div  id="animalIdPage">
 	<div class="container animalsSearch">
 		<a>Animal</a>
@@ -6,11 +6,16 @@
 
 	<div class="container">
 		<div class="animalPage">
-			<div class="animalPageImage"></div>
+			<div class="animalPageImage" data-bind="style: { 'background-image' : fotoBASE64 }" style="background-size: contain;"></div>
+			<div data-bind="if: owner">
+	            <button class="btn btn-md btn-primary btn-block foundBtn" data-bind="click:foundAnimal">Encontrado</button>
+	        </div>
 			<div class="animalPageDescription">
 				<label data-bind="text: name">Nome</label>
 				<label data-bind="text: breed">Raça</label>
 				<label data-bind="text: date">Data</label>
+				<label data-bind="text: email">Data</label>
+				<label data-bind="text: phone">Data</label>
 				<div id="map"></div>
 			</div>
 		</div>
@@ -20,7 +25,7 @@
 
 
 <script>
-	var map;
+	var map,marker;
 	var latv=0;
 	var lngv=0;
 	function initMap() {
@@ -29,10 +34,11 @@
 			zoom: 15
 		});
 
-		var marker = new google.maps.Marker({
+		marker = new google.maps.Marker({
 		    position: {lat: latv, lng: lngv},
 		    map: map,
-		    title: 'Lost Animal'
+		    title: 'Lost Animal',
+		    Draggable: true
 		});
 	}
 
@@ -40,7 +46,8 @@
 		latv=lat2;
 		lngv=lng2;
 		if(map!=undefined){
-			map.setCenter(lat2,lng2);
+			map.setCenter({lat: lat2, lng: lng2});
+			marker.setPosition({lat: lat2, lng: lng2});
 		}
 	}
 </script>

@@ -1,6 +1,6 @@
 petlost.pages.animalView=function(){
 	function animalViewModel(location) {
-		this.animals=ko.observableArray([]);
+		this.animals=ko.observableArray();
 	    this.valueKm=ko.observable(5);
 	    this.minKM=ko.observable(1);
 	    this.maxKm=ko.observable(10); 
@@ -37,7 +37,7 @@ petlost.pages.animalView=function(){
 					context.animals([]);
             		context.animals(response.BuscaLocalResult);
 	            }else{
-	            	alert("Invalid credencials");
+	            	alert("Sem animais no raio de procura");
 	            }
 	    	}
 
@@ -64,8 +64,10 @@ petlost.pages.animalView=function(){
 		
 	    
 	}
+
+
 	navigator.geolocation.getCurrentPosition(function(location) {
 		ko.applyBindings(new animalViewModel(location),document.getElementById("animalViewPage"));	
-	});
+	},function(){alert("ative a sua localização pf")});
 	
 }

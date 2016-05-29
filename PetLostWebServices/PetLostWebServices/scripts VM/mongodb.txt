@@ -1,0 +1,20 @@
+rsconf = {
+    _id: "rs0",
+    members: [
+        {
+			_id: 0,
+			host: "192.168.1.168:27017"
+        },
+		{
+			_id: 1,
+			host: "192.168.1.170:27017"
+        },
+		{
+			_id: 0,
+			host: "192.168.1.174:27017"
+        }
+    ]
+}
+
+
+rs.initiate() {"info2" : "no configuration explicitly specified -- making one","me" : "Alex-Yoga2:27021","ok" : 1}

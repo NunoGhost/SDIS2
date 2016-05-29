@@ -9,6 +9,9 @@ petlost.pages.menu=function(){
 	    this.logout=function(){
 	    	logout();
 	    }
+	    this.myanimals=function(){
+	    	changePage(petlost.nav.pages.myanimals);
+	    }
 	 
 	}
 	ko.applyBindings(new menuModel(),document.getElementById("menuPage"));

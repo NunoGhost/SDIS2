@@ -34,7 +34,7 @@ namespace PetLostWebServices
 
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
-        private string connBD = "mongodb://192.168.1.168:27017";
+        private string connBD = "mongodb://192.168.1.165:27017";
         public Boolean Registo(RegistoForm form)
         {
             _client = new MongoClient(connBD);

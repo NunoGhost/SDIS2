@@ -42,7 +42,14 @@ var petlost={
 				init:function(info){
 					petlost.pages.register(info);
 				}
-			}
+			},
+			myanimals:{
+				html:"html/myanimals.html",
+				init:function(){
+					menuLoad();
+					petlost.pages.myanimals();
+				}
+			},
 		}
 	},
 	

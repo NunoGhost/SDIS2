@@ -1,0 +1,9 @@
+#noAnimals > label {
+	width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 21px;
+    color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+}

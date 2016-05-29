@@ -64,8 +64,15 @@ petlost.pages.login=function(){
 		  }, { scope: 'email,user_photos,publish_actions' });
 
 
-
-
+			/*$cordovaOauth.facebook(configs.facebookAppId, 
+	        ["email"]).then(function(result) {
+	            alert(result.access_token);
+	            // results
+	        }, function(error) {
+	            alert("error");
+	            alert(error);
+	            // error
+	        });*/
 
 
 		}

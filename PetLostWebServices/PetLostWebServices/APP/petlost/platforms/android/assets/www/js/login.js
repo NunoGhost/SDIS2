@@ -6,7 +6,7 @@ petlost.pages.login=function(){
 	    	console.log("email: "+this.email());
 	    	console.log("password: "+this.password());
 	    	var request={form:{EmailValue:this.email(),PasswordValue:this.password()}};
-	    	service(configs.loginService,"POST",request,this.loginResponse);
+	    	service(configs.loginService,"POST",request,this.loginResponse,this);
 	    }
 
 	    this.register=function(){
@@ -14,12 +14,13 @@ petlost.pages.login=function(){
 	    }
 
 
-	    this.loginResponse=function(response){
+	    this.loginResponse=function(response,context){
 	    	console.log(response);
 	    	if(response==undefined || response.status==0){
 	    		alert("Error connecting to server");
 	    	}else{
 	    		if(response.LoginResult){
+	    			user.email=context.email();
             		changePage(petlost.nav.pages.animalView);
 	            }else{
 	            	alert("Invalid credencials");
@@ -46,6 +47,7 @@ petlost.pages.login=function(){
 				    		changePage(petlost.nav.pages.register,response);
 				    	}else{
 				    		if(resp.LoginResult){
+				    			user.email=response.email;
 			            		changePage(petlost.nav.pages.animalView);
 				            }else{
 				            	changePage(petlost.nav.pages.register,response);
@@ -62,8 +64,15 @@ petlost.pages.login=function(){
 		  }, { scope: 'email,user_photos,publish_actions' });
 
 
-
-
+			/*$cordovaOauth.facebook(configs.facebookAppId, 
+	        ["email"]).then(function(result) {
+	            alert(result.access_token);
+	            // results
+	        }, function(error) {
+	            alert("error");
+	            alert(error);
+	            // error
+	        });*/
 
 
 		}

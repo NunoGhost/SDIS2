@@ -9,3 +9,13 @@ C:\Users\Pc\documents\visual studio 2013\Projects\PetLostWebServices\PetLostWebS
 C:\Users\Pc\documents\visual studio 2013\Projects\PetLostWebServices\PetLostWebServices\obj\Debug\PetLostWebServices.csprojResolveAssemblyReference.cache
 C:\Users\Pc\documents\visual studio 2013\Projects\PetLostWebServices\PetLostWebServices\obj\Debug\PetLostWebServices.dll
 C:\Users\Pc\documents\visual studio 2013\Projects\PetLostWebServices\PetLostWebServices\obj\Debug\PetLostWebServices.pdb
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\bin\PetLostWebServices.dll.config
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\bin\PetLostWebServices.dll
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\bin\PetLostWebServices.pdb
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\bin\MongoDB.Bson.dll
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\bin\MongoDB.Driver.Core.dll
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\bin\MongoDB.Driver.dll
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\bin\MongoDB.Bson.xml
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\bin\MongoDB.Driver.xml
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\obj\Debug\PetLostWebServices.dll
+C:\Users\carre\Documents\PetLost\SERVER\PetLostWebServices\PetLostWebServices\obj\Debug\PetLostWebServices.pdb

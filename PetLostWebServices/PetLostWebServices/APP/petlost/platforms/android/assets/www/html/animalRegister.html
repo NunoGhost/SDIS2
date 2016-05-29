@@ -1,3 +1,4 @@
+
 <div  id="animalRegisterPage">
 
   <div class="row" id="pwd-container">
@@ -5,15 +6,19 @@
     
     <div class="col-md-4">
       <section class="register-form">
-        <form method="post" action="#" role="login">         
-          <input type="text" placeholder="Name" required class="form-control input-lg" data-bind="value: name" />
-          <input type="text" placeholder="Breed" required class="form-control input-lg" data-bind="value: breed" />
-          <input type="text" placeholder="Date" required class="form-control input-lg" data-bind="value: date" />
-          <input type="text" placeholder="Location" required class="form-control input-lg" data-bind="value: location" />
+        <form method="post" action="#" role="login">       
+          <div>
+            <a class="registerTitle">Registar Animal</a>
+          </div>  
+          <input type="file" id="photo" data-bind="event:{ change: loadFile}">
+          <input type="text" placeholder="Nome" required class="form-control input-lg" data-bind="value: name" />
+          <input type="text" placeholder="Raça" required class="form-control input-lg" data-bind="value: breed" />
+          <input type="text" placeholder="Data" required class="form-control input-lg" data-bind="value: date" id="datePicker"/>
+          <div id="map"></div>
           <!--Id, Nome, raça, foto, data perdido, localização, IDregisto-->
           <div class="pwstrength_viewport_progress"></div>
           
-          <button class="btn btn-lg btn-primary btn-block" data-bind="click:register">Register</button>
+          <button class="btn btn-lg btn-primary btn-block" data-bind="click:register">Registar</button>
         </form>
       </section>  
       </div>
@@ -22,3 +27,31 @@
      
   </div>  
 </div>
+
+<script>
+  var map,marker;
+  var latv=0;
+  var lngv=0;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: latv, lng: lngv},
+      zoom: 15
+    });
+
+    marker = new google.maps.Marker({
+        position: {lat: latv, lng: lngv},
+        map: map,
+        title: 'Lost Animal',
+        Draggable: true
+    });
+  }
+
+  function setCenter(lat2,lng2){
+    latv=lat2;
+    lngv=lng2;
+    if(map!=undefined){
+      map.setCenter({lat: lat2, lng: lng2});
+      marker.setPosition({lat: lat2, lng: lng2});
+    }
+  }
+</script>

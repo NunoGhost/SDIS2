@@ -39,8 +39,8 @@ body {
     background-size: cover;
 }
 
-.login-form {
-	margin-top: 30%;
+.register-people-form {
+	margin-top: 19%;
 }
 
 form[role=login] {
