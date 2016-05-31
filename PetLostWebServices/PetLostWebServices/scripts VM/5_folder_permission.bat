@@ -1,0 +1,1 @@
+icacls "C:\Users\IEUser\Desktop\PetLost" /grant "everyone":(OI)(CI)M

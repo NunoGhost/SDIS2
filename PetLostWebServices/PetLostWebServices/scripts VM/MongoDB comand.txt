@@ -1,0 +1,8 @@
+C:\MongoDB\Server\3.2\bin>
+mongod --port PORTNUM --dbpath DBPATH
+mongod --port 27017 --dbpath "C:\MongoDB\data\db" --journal --storageEngine=mmapv1 --replSet rs0 --bind_ip 192.168.1.106
+
+mongo 192.168.1.106
+rs.inititate()
+rs.status()
+rs.add( { host: "192.168.1.165:27017", priority: 0 } )

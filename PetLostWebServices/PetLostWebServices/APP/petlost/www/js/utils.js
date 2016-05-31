@@ -2,7 +2,7 @@ var user={}
 
 var configs={
 	//server:"http://localhost",
-	server:"http://192.168.1.72/Services",
+	server:"http://192.168.1.109/Services",
 	loginService:"/Service1.svc/Login",
 	newregisterService:"/Service1.svc/Registo",
 	animalFindService:"/Service1.svc/BuscaLocal",

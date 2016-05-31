@@ -1,0 +1,1 @@
+xcopy "\\VBOXSVR\SharedFolder_VM" "C:\Users\IEUser\Desktop\PetLost" /s/h/e/k/f/c
