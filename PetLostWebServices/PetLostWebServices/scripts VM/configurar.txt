@@ -1,0 +1,3 @@
+-mudar ip no proxy
+-mudar ip da 1ª bd no projeto
+-copiar app para vm

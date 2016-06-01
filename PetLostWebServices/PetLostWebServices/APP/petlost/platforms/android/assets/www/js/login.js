@@ -29,7 +29,7 @@ petlost.pages.login=function(){
 		}
 
 		this.facebookLogin=function(){
-			FB.login(function (response) {
+			/*FB.login(function (response) {
 		    if (response.authResponse) {
 		      console.log(response);
 		     	FB.api('/me?fields=id,name,email,permissions', function (response) {
@@ -61,7 +61,7 @@ petlost.pages.login=function(){
 		    } else {
 		      alert("Login attempt failed!");
 		    }
-		  }, { scope: 'email,user_photos,publish_actions' });
+		  }, { scope: 'email,user_photos,publish_actions' });*/
 
 
 			/*$cordovaOauth.facebook(configs.facebookAppId, 
@@ -74,11 +74,50 @@ petlost.pages.login=function(){
 	            // error
 	        });*/
 
-
+		openFB.login(
+                function(response) {
+                    if(response.status === 'connected') {
+						openFB.api({
+				            path: '/me',
+				            params:{'fields':'name,email'},
+				            success: function(data) {
+				                console.log(JSON.stringify(data));
+				                var request={form:{EmailValue:data.email,PasswordValue:data.id}};
+				    			$.ajax({
+									type: "POST",
+									contentType: 'application/json; charset=utf-8',
+									dataType: "json",
+									url: configs.server+configs.loginService,
+									data: JSON.stringify(request),
+									crossDomain: true,
+							    }).done(function (resp) {
+							    	if(resp==undefined || resp.status==0){
+							    		changePage(petlost.nav.pages.register,data);
+							    	}else{
+							    		if(resp.LoginResult){
+							    			user.email=data.email;
+						            		changePage(petlost.nav.pages.animalView);
+							            }else{
+							            	changePage(petlost.nav.pages.register,data);
+							            }
+							    	}
+							    }).fail(function (err) {
+							    	changePage(petlost.nav.pages.register,response);
+							    });
+				            },
+				            error: function(data){
+				            	alert(data.message);
+				            }
+				        });
+                        
+                    } else {
+                        alert('Facebook login failed: ' + response.error);
+                    }
+                }, {scope: 'email,user_photos,publish_actions'});
 		}
 	}
 	ko.applyBindings(new LoginModel(),document.getElementById("loginPage"));
-
+	openFB.init({appId: '102729860150101'});
 }
 
 

@@ -1,0 +1,3 @@
+http://192.168.1.109/Services/Service1.svc/RegistoAnimal
+
+{"form":{"NomeValue":"fox3","RacaValue":"lavrador","EmailValue":"nuno@petlost.pt","LocalizacaoLatValue":41.25,"LocalizacaoLongValue":-6.5,"DataValue":"31/5/2016 00:00:00","FotoValue":[1,2,1],"EncontradoValue":false}}

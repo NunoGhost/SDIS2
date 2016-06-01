@@ -3,16 +3,21 @@ petlost.pages.animalRegister=function(){
 	    this.name=ko.observable();
 	    this.breed=ko.observable();
 		var d = new Date();
-		var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
+		var datestring =  (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear();
 	    this.date=ko.observable(datestring);
 	    this.location=ko.observable();
-	    this.photo=ko.observable();
+	    this.photo=ko.observable([]);
 	    this.RegisterAnimalsResponse=function(response,context){
 	    	console.log(response);
+
 			if(response==undefined || response.status!=200){
+				if(response.RegistoAnimalResult!=undefined){
+					backPage();
+					return;
+				}
 	    		alert("Error connecting to server");
 	    	}else{
-	    		backPage();
+	    		
 	    	}
 		}
 
@@ -48,6 +53,7 @@ petlost.pages.animalRegister=function(){
 
 	    this.register=function(){
 	    	var request={form:{NomeValue:this.name(),RacaValue:this.breed(),EmailValue:user.email,LocalizacaoLatValue:latv,LocalizacaoLongValue:lngv,DataValue:this.date()+" 00:00:00",FotoValue:this.photo(),EncontradoValue:false}};
+	    	alert(latv+";"+lngv);
 	    	service(configs.registerService,"POST",request,this.RegisterAnimalsResponse,this);
 
 	    	
