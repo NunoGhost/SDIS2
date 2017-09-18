@@ -31,6 +31,23 @@ petlost.pages.animalId=function(info){
 	    	service(configs.listEncontradoService,"POST",request,this.AnimalFoundResponse,this);
 	    }
 
+	    this.shareAnimal=function(){
+	    	openFB.api({
+            	method: 'POST',
+            	path: '/me/feed',
+	            params: {
+	                message: 'O animal dara raça '+this.breed()+' com o nome '+this.name()+' foi perdido a '+this.date()+', caso o encontrem contactar '+this.phone()
+	            },
+	            success: function() {
+	                alert('A partilha foi feita com sucesso');
+	            },
+            	error: function(){
+            		alert("Não foi possível partilhar de momento")
+            	}
+            });
+	    }
+
+
 	    this.userDataResponse=function(response,context){
 	    	console.log(response);
 			context.phone(response.PersonalInfoResult.ContatoValue);

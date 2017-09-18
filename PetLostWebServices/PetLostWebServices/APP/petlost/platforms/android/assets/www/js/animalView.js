@@ -45,7 +45,6 @@ petlost.pages.animalView=function(){
 		}
 
 	    this.valueKmLabel=ko.computed(function() {
-	    	alert(location.coords.latitude+" "+location.coords.longitude);
 	    	var request={form:{LocalizacaoLatValue:location.coords.latitude,LocalizacaoLongValue:location.coords.longitude,RaioValue:parseInt(this.valueKm())}};
 			service(configs.animalFindService,"POST",request,this.GetAnimalsResponse,this);
 
@@ -68,6 +67,8 @@ petlost.pages.animalView=function(){
 
 	navigator.geolocation.getCurrentPosition(function(location) {
 		ko.applyBindings(new animalViewModel(location),document.getElementById("animalViewPage"));	
-	},function(){alert("ative a sua localização pf")});
+	},function(){alert("ative a sua localização pf"); 
+	var location={coords:{latitude:41.1244055,longitude:-8.6541063}};
+	ko.applyBindings(new animalViewModel(location),document.getElementById("animalViewPage"));	});
 	
 }

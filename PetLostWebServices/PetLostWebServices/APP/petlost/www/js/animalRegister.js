@@ -53,7 +53,6 @@ petlost.pages.animalRegister=function(){
 
 	    this.register=function(){
 	    	var request={form:{NomeValue:this.name(),RacaValue:this.breed(),EmailValue:user.email,LocalizacaoLatValue:latv,LocalizacaoLongValue:lngv,DataValue:this.date()+" 00:00:00",FotoValue:this.photo(),EncontradoValue:false}};
-	    	alert(latv+";"+lngv);
 	    	service(configs.registerService,"POST",request,this.RegisterAnimalsResponse,this);
 
 	    	

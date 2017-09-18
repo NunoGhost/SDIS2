@@ -45,7 +45,6 @@ petlost.pages.animalView=function(){
 		}
 
 	    this.valueKmLabel=ko.computed(function() {
-	    	alert(location.coords.latitude+" "+location.coords.longitude);
 	    	var request={form:{LocalizacaoLatValue:location.coords.latitude,LocalizacaoLongValue:location.coords.longitude,RaioValue:parseInt(this.valueKm())}};
 			service(configs.animalFindService,"POST",request,this.GetAnimalsResponse,this);
 

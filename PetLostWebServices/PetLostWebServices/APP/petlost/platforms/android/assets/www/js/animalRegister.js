@@ -53,15 +53,19 @@ petlost.pages.animalRegister=function(){
 
 	    this.register=function(){
 	    	var request={form:{NomeValue:this.name(),RacaValue:this.breed(),EmailValue:user.email,LocalizacaoLatValue:latv,LocalizacaoLongValue:lngv,DataValue:this.date()+" 00:00:00",FotoValue:this.photo(),EncontradoValue:false}};
-	    	alert(latv+";"+lngv);
 	    	service(configs.registerService,"POST",request,this.RegisterAnimalsResponse,this);
 
 	    	
 	    }
 
-	    navigator.geolocation.getCurrentPosition(function(location) {
-		  setCenter(location.coords.latitude,location.coords.longitude);
-		  initMap();
+		navigator.geolocation.getCurrentPosition(function(location) {
+			setCenter(location.coords.latitude,location.coords.longitude);
+		  	initMap();
+		},function(){
+			alert("ative a sua localização pf"); 
+			var location={coords:{latitude:41.1244055,longitude:-8.6541063}};
+			setCenter(location.coords.latitude,location.coords.longitude);
+		  	initMap();
 		});
 	}
 	ko.applyBindings(new animalRegisterModel(),document.getElementById("animalRegisterPage"));

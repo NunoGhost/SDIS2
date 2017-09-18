@@ -10,6 +10,9 @@
 			<div data-bind="if: owner">
 	            <button class="btn btn-md btn-primary btn-block foundBtn" data-bind="click:foundAnimal">Encontrado</button>
 	        </div>
+	        <div data-bind="ifnot: owner">
+	            <button class="btn btn-md btn-primary btn-block foundBtn" data-bind="click:shareAnimal">Partlhar</button>
+	        </div>
 			<div class="animalPageDescription">
 				<label data-bind="text: name">Nome</label>
 				<label data-bind="text: breed">Raça</label>
